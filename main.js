@@ -20,7 +20,7 @@ async function getSongs(folder) {
     currFolder = folder;
 
     // Fetch from local project structure (Netlify will serve it)
-    let a = await fetch(`/${folder}/`);
+    let a = await fetch(`https://github.com/subha7013/Project-Spotify-Clone/blob/main/songs/${folder}/`);
     let response = await a.text();
 
     let div = document.createElement("div")
