@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container flex bg-black">
+        <div class="left rounded p-1">
+            <div class="close">
+                <img class="invert" src="/img/close.svg" alt="">
+            </div>
+            <div class="home bg-grey rounded m-1 p-1">
+                <div class="logo invert">
+                    <img src="img/logo.svg" alt="logo">
+                </div>
+                <ul>
+                    <li><img src="/img/home.svg" class="invert" alt="home">
+                        <h4>Home</h4>
+                    </li>
+                    <li class="srch bright"><img src="/img/search.svg"
+                            class="invert" alt="Home"><h4>Search</h4></li>
+                </ul>
+            </div>
+            <div class="library bg-grey rounded m-1 p-1">
+                <div class="heading srch bright">
+                    <img src="/img/playlist.svg" class="invert" alt="playlist">
+                    <h2 class="srch">Your Library</h2>
+                </div>
+                
+                <input
+                type="text"
+                id="songSearch"
+                placeholder="Search songs..."
+                class="p-1 m-1 rounded"
+                style="display: none; width: 87%;"
+              />
+              
+                <div class="songlist">
+                    <ul>
+                            <!-- already inserted in script.js betweeen 49 to 59 lines  -->
+                    </ul>
+                </div>
+                <div class="footer">
+                    <div><a href="https://www.spotify.com/jp/legal/" target="_blank"><span>Legal</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/privacy/" target="_blank"><span>Privacy Center</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/" target="_blank"><span>Privacy Policy</span></a>
+                    </div>
+                    <div><a href="https://www.spotify.com/jp/legal/cookies-policy/" target="_blank"><span>Cookies</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3" target="_blank"><span>About Ads</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/accessibility/" target="_blank"><span>Accessibility</span></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="right bg-grey rounded p-1">
+            <div class="header">
+                <div class="nav">
+                    <div class="hamburgerContainer">
+                        <img class="invert hamburger" src="/img/hamburger.svg" alt="">  
+                        <img class="arr" src="/img/left.png" alt="">
+                        <img class="arr" src="/img/right.png" alt="">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <h4 class="signup sgn"><a href="">Signup</a></h4>
+                    <button class="login invert">Login</button>
+                    <img class="modeChange" src="/img/light.svg" alt="Toggle">
+                </div>
+            </div>
+            <div class="spotify-playlist">
+                <h1>Spotify Playlists</h1>
+                <div class="cardContainer">
+                    <div data-folder="cs" class="card">
+                        <div class="play">
+                            <img src="/img/play.svg" alt="">
+                        </div>
+                        <img src="/songs/cs/cover.jpg" alt="">
+                        <h2>Songs from Album 1</h2>
+                        <p>Downloaded copyright Songs mood Hindi songs</p>
+                    </div>
+                    <div data-folder="ncs" class="card">
+                        <div class="play">
+                            <img src="/img/play.svg" alt="">
+                        </div>
+                        <img src="/songs/ncs/cover.jpg" alt="">
+                        <h2>Songs from Album 2</h2>
+                        <p>No copyright Songs downloaded Hindi</p>
+                    </div>
+                    <div data-folder="guru" class="card">
+                        <div class="play">
+                            <img src="/img/play.svg" alt="">
+                        </div>
+                        <img src="/songs/guru/cover.jpg" alt="">
+                        <p class="al">Guru Randhawa</p>
+                    </div>
+                    <div data-folder="arijit" class="card">
+                        <div class="play">
+                            <img src="/img/play.svg" alt="">
+                        </div>
+                        <img src="/songs/arijit/cover.jpg" alt="">
+                        <p class="al">Arijit Singh</p>
+                    </div>
+                </div>
+                   
+                <div class="playbar invert">
+                    
+                    <div class="contents">
+                        <div class="songinfo"></div>
+                        <div class="songbuttons">
+                            <img width="35" id="previous" src="/img/prevsong.svg" alt="">
+                            <img width="35" id="play" src="/img/play-cir.svg" alt="">
+                            <img width="35" id="next" src="/img/nextsong.svg" alt="">
+                        </div>
+                        <div class="timevol">
+                            <div class="songtime"></div>
+                            <div class="volume">
+                                <img id="volume" src="/img/volume.svg" alt="">
+                                <input type="range" class="range" min="0" max="100" name="volume"  value="50" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="seekbar">
+                        <div class="circle"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
