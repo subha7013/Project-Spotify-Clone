@@ -17,7 +17,9 @@ function secondsToMinuteSeconds(seconds) {
 
 async function getSongs(folder) {
   currFolder = folder;
-  const response = await fetch(`/songs/${folder}/`);
+  const response = await fetch(`songs/${folder}/index.json`);       // To get song list
+    currentsong.src = `songs/${currFolder}/${track}`; // To play song
+
   const html = await response.text();
   const container = document.createElement("div");
   container.innerHTML = html;
