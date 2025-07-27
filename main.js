@@ -18,47 +18,54 @@ function secondsToMinuteSeconds(seconds) {
 
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`https://github.com/subha7013/Project-Spotify-Clone/tree/main/songs/arijit/`);
+
+    // Fetch from local project structure (Netlify will serve it)
+    let a = await fetch(`/${folder}/`);
     let response = await a.text();
+
     let div = document.createElement("div")
     div.innerHTML = response;
+
     let as = div.getElementsByTagName("a")
-    songs = []
+    songs = [];
+
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/${folder}/`)[1])
+            songs.push(element.href.split(`/${folder}/`)[1]);
         }
     }
-    //show all the songs in the playlist
-    let songul = document.querySelector(".songlist").getElementsByTagName("ul")[0]
-    songul.innerHTML = ""
+
+    // Show all the songs in the playlist
+    let songul = document.querySelector(".songlist ul");
+    songul.innerHTML = "";
+    
     for (const song of songs) {
-        songul.innerHTML = songul.innerHTML +
-            `<li>
-                                <img  class="invert" src="/img/music.svg" alt="">
-                                <div class="info">
-                                    <div>${song.replaceAll("%20", " ")}</div>
-                                    <div></div>
-                                </div>
-                                <div class="playnow">
-                                    <span>Play Now</span>
-                                    <img class="invert" src="/img/play.svg" alt="">
-                                </div>
-                        </li>`;
+        songul.innerHTML += `
+            <li>
+                <img class="invert" src="/img/music.svg" alt="">
+                <div class="info">
+                    <div>${decodeURIComponent(song.replaceAll("%20", " "))}</div>
+                    <div></div>
+                </div>
+                <div class="playnow">
+                    <span>Play Now</span>
+                    <img class="invert" src="/img/play.svg" alt="">
+                </div>
+            </li>`;
     }
 
-
-    //attach an event listener to each song
-    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
+    // Attach event listeners
+    Array.from(songul.getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element => {
-            console.log(e.querySelector(".info").firstElementChild.innerHTML)
-            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
-        })
+            const songName = e.querySelector(".info").firstElementChild.innerHTML.trim();
+            playMusic(songName);
+        });
+    });
 
-    })
-    return songs
+    return songs;
 }
+
 
 const playMusic = (track, pause = false) => {
     currentsong.src = `/songs/${currFolder}/` + track
