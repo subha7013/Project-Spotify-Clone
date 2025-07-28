@@ -203,7 +203,7 @@ async function main() {
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
             console.log("Fetching songs")
-            songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
+            songs = await getSongs(`${item.currentTarget.dataset.folder}`)
             playMusic(songs[0])
         })
     })
