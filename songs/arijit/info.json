@@ -1,5 +1,10 @@
 
 {
-    "tittle": "No Copyright Songs",
-    "description": "Songs for you"
+    "tittle": "Author",
+    "description": "Album Songs"
+    "songs": [
+    "Bhalobashar Morshum.mp3",
+    "Chaleya-From-Jawan.mp3",
+    "isqadar.mp3"
+  ]
 }
